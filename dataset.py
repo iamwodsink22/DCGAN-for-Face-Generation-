@@ -8,10 +8,3 @@ normalization_layer = tf.keras.layers.Rescaling(scale=1./127.5,offset=-1)
 
 train_images= train_images.map(lambda x: (normalization_layer(x)))
 
-fig = plt.figure(figsize=(4, 4))
-
-for x in train_images:
-    plt.axis('off')
-    plt.imshow((x.numpy() * 127.5 + 127.5).astype('int32')[1])
-    plt.show()
-    break
